@@ -84,7 +84,7 @@
 }
 .btn{
     color: #fff;
-    background-color: #005EFF;
+    background-color: #0055cc;
     border: none;
     padding: .25rem;
     margin: 0 .5rem
@@ -101,16 +101,17 @@
     left: 1100px;
     margin-top: 15rem;
     color: #fff;
-    background-color: #005EFF;
     padding: .25rem .5rem;
-    border: none;
     font-size: 1.5rem;
+    border-radius:8px;
+    background-color: #0066cc;
+    border: none;
+    cursor: pointer;
 }
 
 .form__btnCadastrar:hover{
     cursor: pointer;
     background-color: #3962AA;
-    border: none;
 }
 
 .footer__img{
