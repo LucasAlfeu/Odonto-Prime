@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/styles/inicio.css">
-    <title>Cadastro de Paciente</title>
+    <title>Odonto Prime</title>
     <script>
     function buscarPaciente() {
         var query = document.querySelector('.search-box').value;
@@ -24,6 +24,7 @@
 <body>
     <header class="header">
         <img class="header__image" src="./assets/images/header.png" alt="">
+        <img class="logo" scr
     </header>
     <main class="principal">
         <a href="" class="principal__volta">Voltar</a>
@@ -34,16 +35,18 @@
                 <input type="submit" value="Buscar" class="search-button">
             </div>
         </form>
-        <div class="result-container">
-            <?php include 'buscarPaci.php'; ?>
+        <div class="result-container table-container">
+            <table class="fixed-table">
+                <?php include 'buscarPaci.php'; ?>
+            </table>
         </div>
         <div class="buttons-container">
             <div>
                 <a href="cadastrar_consulta.php"><button class="btn">Cadastrar Consulta</button></a>
-                <a href="cadastrar_paciente.php"><button class="btn">Cadastrar Paciente</button></a>
+                <a href="cadastroPaciente.php"><button class="btn">Cadastrar Paciente</button></a>
             </div>
             <div>
-                <img src="./assets/images/bebe.png" alt="Imagem de um bebê">
+            <img src="./assets/images/bebe.png" alt="Imagem de um bebê" class="rounded-image">    
             </div>
         </div>
     </main>
