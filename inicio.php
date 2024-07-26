@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/styles/inicio.css">
-    <title>Cadastro de Paciente</title>
+    <title>Odonto Prime</title>
     <script>
     function buscarPaciente() {
         var query = document.querySelector('.search-box').value;
@@ -18,15 +18,21 @@
         };
         xhr.send();
     }
+    function voltar(){
+        window.history.back();
+    }
     </script>
 </head>
 
 <body>
     <header class="header">
         <img class="header__image" src="./assets/images/header.png" alt="">
+        <a href="inicio.php">
+            <img class="logo" src="./assets/images/logo.png" alt="logo da empresa ODONTO PRIME">
+        </a>
     </header>
     <main class="principal">
-        <a href="" class="principal__volta">Voltar</a>
+        <a onclick="voltar()" class="principal__volta">Voltar</a>
         <h2 class="search-title">Buscar por Paciente</h2>
         <form class="search-form" onsubmit="event.preventDefault(); buscarPaciente();">
             <div class="search-container">
@@ -34,16 +40,18 @@
                 <input type="submit" value="Buscar" class="search-button">
             </div>
         </form>
-        <div class="result-container">
-            <?php include 'buscarPaci.php'; ?>
+        <div class="result-container table-container">
+            <table class="fixed-table">
+                <?php include 'buscarPaci.php'; ?>
+            </table>
         </div>
         <div class="buttons-container">
             <div>
-                <a href="cadastrar_consulta.php"><button class="btn">Cadastrar Consulta</button></a>
-                <a href="cadastrar_paciente.php"><button class="btn">Cadastrar Paciente</button></a>
+                <a href="cadastroConsulta.php"><button class="btn">Cadastrar Consulta</button></a>
+                <a href="cadastroPaciente.php"><button class="btn">Cadastrar Paciente</button></a>
             </div>
             <div>
-                <img src="./assets/images/bebe.png" alt="Imagem de um bebê">
+            <img src="./assets/images/bebe.png" alt="Imagem de um bebê" class="rounded-image">    
             </div>
         </div>
     </main>
