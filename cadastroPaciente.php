@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -43,31 +41,31 @@
                     <div class="avatar__box">
                         Cabelo: 
                         <input type="button" value="←" class="btn" onclick="diminuirCabelo(document.getElementById('cabelo_lego'), document.getElementById('cabelo_image'))">
-                        <input class="avatar__input" type="text" name="ipt_cabelo" id="cabelo_lego" value="1">
+                        <input class="avatar__input" type="text" name="cabelo_lego" id="cabelo_lego" value="1">
                         <input type="button" value="→" class="btn" onclick="aumentarCabelo(document.getElementById('cabelo_lego'), document.getElementById('cabelo_image'))"">
                     </div>
                     <div class="avatar__box">
                         Rosto: 
                         <input type="button" value="←" class="btn" onclick="diminuirRosto(document.getElementById('rosto_lego'), document.getElementById('rosto_image'))">
-                        <input class="avatar__input" type="text" name="" id="rosto_lego" value="1">
+                        <input class="avatar__input" type="text" name="rosto_lego" id="rosto_lego" value="1">
                         <input type="button" value="→" class="btn" onclick="aumentarRosto(document.getElementById('rosto_lego'), document.getElementById('rosto_image'))">
                     </div>
                     <div class="avatar__box">
                         Pele: 
                         <input type="button" value="←" class="btn" onclick="diminuirPele(document.getElementById('pele_lego'), document.getElementById('pele_image'))">
-                        <input class="avatar__input" type="text" name="" id="pele_lego" value="1">
+                        <input class="avatar__input" type="text" name="pele_lego" id="pele_lego" value="1">
                         <input type="button" value="→" class="btn" onclick="aumentarPele(document.getElementById('pele_lego'), document.getElementById('pele_image'))">
                     </div>
                     <div class="avatar__box">
                         Tronco: 
                         <input type="button" value="←" class="btn" onclick="diminuirTorso(document.getElementById('tronco_lego'), document.getElementById('tronco_image'))">
-                        <input class="avatar__input" type="text" name="" id="tronco_lego" value="1">
+                        <input class="avatar__input" type="text" name="tronco_lego" id="tronco_lego" value="1">
                         <input type="button" value="→" class="btn" onclick="aumentarTorso(document.getElementById('tronco_lego'), document.getElementById('tronco_image'))">
                     </div>
                     <div class="avatar__box">
                         Pernas: 
                         <input type="button" value="←" class="btn" onclick="diminuirPerna(document.getElementById('pernas_lego'), document.getElementById('pernas_image'))">
-                        <input class="avatar__input" type="text" name="" id="pernas_lego" value="1">
+                        <input class="avatar__input" type="text" name="pernas_lego" id="pernas_lego" value="1">
                         <input type="button" value="→" class="btn" onclick="aumentarPerna(document.getElementById('pernas_lego'), document.getElementById('pernas_image'))">
                     </div>
                 </div>
@@ -78,7 +76,7 @@
     <footer class="footer">
         <img class="footer__img" src="./assets/images/footer.png" alt="">
     </footer>
-    <script src="./assets/scripts/javascript/moldaAvatar.js"></script>
+    
 
 <?php 
    $nomeResp = $emailResp = $telResp = "";
@@ -134,21 +132,53 @@
         } else {
             $nasciPaci = teste_entrada($_POST["nasci_paci"]);
         } 
-        // echo "<p>$nomeResp</p><br>";
-        // echo "<p>$emailResp</p><br>";
-        // echo "<p>$telResp</p><br>";
-        // echo "<p>$nomePaci</p><br>";
-        // echo "<p>$nasciPaci</p><br>";
 
-        $cabelo = (string)$_POST['cabelo_scr'];
-        echo "<p>$cabeloImg</p><br>";
+        $cabeloAux = $_POST["cabelo_lego"];
+        $rostoAux = $_POST["rosto_lego"];
+        $peleAux = $_POST["pele_lego"];
+        $torsoAux = $_POST["tronco_lego"];
+        $pernasAux = $_POST["pernas_lego"];
+
+        $cabelo = "./assets/images/cabelo/".$cabeloAux.".png";
+        $rosto = "./assets/images/rosto/".$rostoAux.".png";
+        $pele = "./assets/images/pele/".$peleAux.".png";
+        $troso = "./assets/images/torso/".$torsoAux.".png";
+        $pernas = "./assets/images/pernas/".$pernasAux.".png";
+
+        $url = 'localhost';
+        $usuario = 'root';
+        $senha = '';
+        $dataBase = 'web1';
+        $link = new mysqli($url, $usuario, $senha, $dataBase);
+        $link->set_charset('utf8');
+
+        
+        
+        //$query_resp = "INSERT INTO responsavel(nome_Resp, email_Resp, tel_Resp) VALUES(:nome, :email: tel)";
+        $query_resp ="INSERT INTO responsavel(nome_Resp, email_Resp, tel_Resp) VALUES(?,?,?)";
+        $stmt = $link->prepare($query_resp);
+        $stmt->bind_param("sss", $nomeResp, $emailResp, $telResp);
+
+        if ($stmt->execute()) {
+            echo "Dados inseridos com sucesso!";
+        } else {
+            echo "Erro ao inserir dados: " . $stmt->error;
+        }
+        
+
+        // $query_avatar = "INSERT INTO avatar(pele_Avat, rosto_Avat, cabelo_Avat, torso_Avat, pernas_Avat) VALUES (:pele, :rosto, :cabelo, :torso, :pernas)"
+        // or die("Error in the create Responsavel table...".$link->connect_error);
+        // $resul_avatar = $link->prepare($query_avatar);
+        // $resul_avatar->bind_param(":pele", $pele);
+        // $resul_avatar->bind_param(":rosto", $rosto);
+        // $resul_avatar->bind_param(":cabelo", $cabelo);
+        // $resul_avatar->bind_param(":torso", $torso);
+        // $resul_avatar->bind_param(":pernas", $pernas);
+        // $resul_avatar->execute();
 
     }
-    
-    
-    
-
 ?>
-    
+    <script src="./assets/scripts/javascript/moldaAvatar.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
 </html>

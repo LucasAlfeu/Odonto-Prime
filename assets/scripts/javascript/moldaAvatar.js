@@ -1,11 +1,3 @@
-let btnEsquerdo = document.getElementById("btn__esquedo")
-
-let cabelo = "./assets/images/cabelo/1.png"
-let rosto = "./assets/images/rosto/1.png"
-let pele = "./assets/images/pele/1.png"
-let torso = "./assets/images/torso/1.png"
-let pernas = "./assets/images/pernas/1.png"
-
 function aumentarCabelo(element, imgCabelo){
     const num = 5
     let path
@@ -165,32 +157,3 @@ function diminuirPerna(element, imgPerna){
     element.value = pecaLego
     pernas = path
 }
-
-function mostraPaths(){
-    console.log(cabelo)
-    console.log(rosto)
-    console.log(pele)
-    console.log(torso)
-    console.log(pernas)
-}
-
-$.ajax({
-
-    url : '../../../cadastroPaciente.php',
-    type : 'POST',
-    data : {
-        'cabelo_scr' : cabelo,
-        'rosto_src': rosto,
-        'pele_src': pele,
-        'torso_src': torso,
-        'pernas_src': pernas
-    },
-    dataType:'json',
-    success : function(data) {              
-        alert('Resultado: '+data);
-    },
-    error : function(request,error)
-    {
-        alert("Resultado: "+JSON.stringify(request));
-    }
-});

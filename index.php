@@ -28,8 +28,8 @@
     $query_create_table_resp = "CREATE TABLE IF NOT EXISTS responsavel (
                                             id_Resp int AUTO_INCREMENT PRIMARY KEY,
                                             nome_Resp varchar(45) NOT NULL,
-                                            email_Resp varchar(60) NOT NULL,
-                                            contato_Resp varchar(15) NOT NULL)"
+                                            email_Resp varchar(200) NOT NULL,
+                                            contato_Resp varchar(20) NOT NULL)"
     or die("Error in the create Responsavel table...".$link->connect_error);
     $result_create_table = $link->query($query_create_table_resp);
 
@@ -98,9 +98,9 @@
     or die("Error in the create Dentista table... ".$link->query($query_create_table_dentista));
 
     if($link->query($query_create_table_dentista) === TRUE){
-        echo "<p>Criou a tabela de Dentista</p>";
+       
     } else {
-        echo "<p>Não criou a tabela de Dentista</p>";
+        
     }   
 
     $query_create_table_consulta = "CREATE TABLE IF NOT EXISTS consulta(
@@ -116,8 +116,8 @@
     or die("Error in the create Dentista table... ".$link->query($query_create_table_consulta));
 
     if($link->query($query_create_table_consulta) === TRUE){
-        echo "<p>Criou a tabela de Consulta</p>";
+        
     } else {
-        echo "<p>Não criou a tabela de Consulta</p>";
+        
     }
 ?>
