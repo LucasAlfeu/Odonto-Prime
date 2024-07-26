@@ -143,6 +143,7 @@ th {
     font-size: 16px;
     margin: 10px 0;
     display: block;
+    border-radius: 8px;
 }
 
 .footer {
@@ -164,8 +165,8 @@ th {
     height: 120px;
 }
 .logo {
-    max-width: 100px; /* Defina um tamanho máximo para a logo */
-    height: auto; /* Mantém a proporção da imagem */
-    display: block; /* Faz com que a imagem seja exibida como um bloco */
-    margin: 10px auto; /* Centraliza a imagem horizontalmente */
+    max-width: 100px;
+    height: auto; 
+    display: block;
+    margin: 10px auto;
 }
