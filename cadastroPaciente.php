@@ -64,7 +64,7 @@
         $cabelo = "./assets/images/cabelo/".$cabeloAux.".png";
         $rosto = "./assets/images/rosto/".$rostoAux.".png";
         $pele = "./assets/images/pele/".$peleAux.".png";
-        $troso = "./assets/images/torso/".$torsoAux.".png";
+        $torso = "./assets/images/torso/".$torsoAux.".png";
         $pernas = "./assets/images/pernas/".$pernasAux.".png";
  
         if (empty($nomeResErr) && empty($emailRespErr) && empty($telRespErr) && empty($nomePaciErr) && empty($nasciPaciErr)) {             
@@ -135,15 +135,15 @@
         <form action="cadastroPaciente.php" class="principal__formulario" method="POST">
             <h2 class="formulario__titulo">Responsável</h2>
             <div class="form__box">
-                Nome: <input type="text" class="form__input">
-                Email: <input type="text" class="form__input">
-                Telefone: <input type="text" class="form__input">
+                Nome: <input type="text" class="form__input"  name="nome_resp">
+                Email: <input type="text" class="form__input" name="email_resp">
+                Telefone: <input type="text" class="form__input" name="tel_resp">
             </div>
 
             <h2 class="formulario__titulo">Criança</h2>
             <div class="form__box">
-                Nome: <input type="text" class="form__input">
-                Data Nascimento: <input type="text" class="form__input">
+                Nome: <input type="text" class="form__input" name="nome_paci">
+                Data Nascimento: <input type="text" class="form__input" name="nasci_paci">
             </div>
             <br>
             <h2 class="formulario__titulo">Avatar</h2>
@@ -159,31 +159,31 @@
                     <div class="avatar__box">
                         Cabelo: 
                         <input type="button" value="←" class="btn" onclick="diminuirCabelo(document.getElementById('cabelo_lego'), document.getElementById('cabelo_image'))">
-                        <input class="avatar__input" type="text" name="ipt_cabelo" id="cabelo_lego" value="1">
+                        <input class="avatar__input" type="text" id="cabelo_lego" value="1" name="cabelo_lego">
                         <input type="button" value="→" class="btn" onclick="aumentarCabelo(document.getElementById('cabelo_lego'), document.getElementById('cabelo_image'))"">
                     </div>
                     <div class="avatar__box">
                         Rosto: 
                         <input type="button" value="←" class="btn" onclick="diminuirRosto(document.getElementById('rosto_lego'), document.getElementById('rosto_image'))">
-                        <input class="avatar__input" type="text" name="" id="rosto_lego" value="1">
+                        <input class="avatar__input" type="text" id="rosto_lego" value="1" name="rosto_lego">
                         <input type="button" value="→" class="btn" onclick="aumentarRosto(document.getElementById('rosto_lego'), document.getElementById('rosto_image'))">
                     </div>
                     <div class="avatar__box">
                         Pele: 
                         <input type="button" value="←" class="btn" onclick="diminuirPele(document.getElementById('pele_lego'), document.getElementById('pele_image'))">
-                        <input class="avatar__input" type="text" name="" id="pele_lego" value="1">
+                        <input class="avatar__input" type="text" id="pele_lego" value="1" name="pele_lego">
                         <input type="button" value="→" class="btn" onclick="aumentarPele(document.getElementById('pele_lego'), document.getElementById('pele_image'))">
                     </div>
                     <div class="avatar__box">
                         Tronco: 
                         <input type="button" value="←" class="btn" onclick="diminuirTorso(document.getElementById('tronco_lego'), document.getElementById('tronco_image'))">
-                        <input class="avatar__input" type="text" name="" id="tronco_lego" value="1">
+                        <input class="avatar__input" type="text" id="tronco_lego" value="1"name="tronco_lego">
                         <input type="button" value="→" class="btn" onclick="aumentarTorso(document.getElementById('tronco_lego'), document.getElementById('tronco_image'))">
                     </div>
                     <div class="avatar__box">
                         Pernas: 
                         <input type="button" value="←" class="btn" onclick="diminuirPerna(document.getElementById('pernas_lego'), document.getElementById('pernas_image'))">
-                        <input class="avatar__input" type="text" name="" id="pernas_lego" value="1">
+                        <input class="avatar__input" type="text" id="pernas_lego" value="1" name="pernas_lego">
                         <input type="button" value="→" class="btn" onclick="aumentarPerna(document.getElementById('pernas_lego'), document.getElementById('pernas_image'))">
                     </div>
                 </div>
