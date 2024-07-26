@@ -4,7 +4,7 @@
     $senha = '';
     $dataBase = '';
     $link = new mysqli($url, $usuario, $senha, $dataBase);
-    $link->set_charset('utf8');
+    $link->set_charset('utf8'); 
 
     if($link){
         echo "Conexão Okay";
