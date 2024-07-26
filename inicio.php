@@ -18,16 +18,21 @@
         };
         xhr.send();
     }
+    function voltar(){
+        window.history.back();
+    }
     </script>
 </head>
 
 <body>
     <header class="header">
         <img class="header__image" src="./assets/images/header.png" alt="">
-        <img class="logo" scr
+        <a href="inicio.php">
+            <img class="logo" src="./assets/images/logo.png" alt="logo da empresa ODONTO PRIME">
+        </a>
     </header>
     <main class="principal">
-        <a href="" class="principal__volta">Voltar</a>
+        <a onclick="voltar()" class="principal__volta">Voltar</a>
         <h2 class="search-title">Buscar por Paciente</h2>
         <form class="search-form" onsubmit="event.preventDefault(); buscarPaciente();">
             <div class="search-container">
@@ -42,7 +47,7 @@
         </div>
         <div class="buttons-container">
             <div>
-                <a href="cadastrar_consulta.php"><button class="btn">Cadastrar Consulta</button></a>
+                <a href="cadastroConsulta.php"><button class="btn">Cadastrar Consulta</button></a>
                 <a href="cadastroPaciente.php"><button class="btn">Cadastrar Paciente</button></a>
             </div>
             <div>

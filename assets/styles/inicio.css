@@ -163,6 +163,9 @@ th {
     width: 100%;
     height: 120px;
 }
-.rounded-image {
-    height:200px;
+.logo {
+    max-width: 100px; /* Defina um tamanho máximo para a logo */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block; /* Faz com que a imagem seja exibida como um bloco */
+    margin: 10px auto; /* Centraliza a imagem horizontalmente */
 }
