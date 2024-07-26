@@ -113,8 +113,6 @@
             } else {
                 echo "Erro: " . $sql_paciente . "<br>" . $conn->error;
             }
-
-            
         }
     }
  ?>
