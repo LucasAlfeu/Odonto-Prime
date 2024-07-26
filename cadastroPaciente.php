@@ -106,28 +106,6 @@
 
             $idAvat = $conn->insert_id;
 
-            // $sql_idResp = "SELECT id_Resp FROM responsavel WHERE nome_Resp='$nomeResp' AND email_Resp='$emailResp' AND contato_Resp='$telResp'" ; 
-            // $result1 = $conn->query($sql_idResp);
-            // $id_resp = '';
-
-            // if($result1->num_rows>0){
-            //     while($row = $result1->fetch_assoc()){
-            //         $id_resp = $row['id_Resp'];
-            //     }
-            // }
-
-            
-
-            // $sql_idAvat = "SELECT id_Avat FROM avatar WHERE pele_Avat='$pele' AND rosto_Avat='$rosto' AND cabelo_Avat='$cabelo' AND torso_Avat='$torso' AND pernas_Avat='$pernas'" ; 
-            // $result2 = $conn->query($sql_idAvat);
-            // $id_avat = '';
-
-            // if($result2->num_rows>0){
-            //     while($row = $result2->fetch_assoc()){
-            //         $idAvat = $row['id_Avat'];
-            //     }
-            // }
-
             //Cadastro De Paciente
             $sql_paciente = "INSERT INTO paciente(nome_Paci, dataNasci_Pac, id_Resp, id_Avat) VALUES('$nomePaci', '$nasciPaci', '$idResp', '$idAvat')";
             if ($conn->query($sql_paciente) === TRUE) {
@@ -135,6 +113,8 @@
             } else {
                 echo "Erro: " . $sql_paciente . "<br>" . $conn->error;
             }
+
+            
         }
     }
  ?>
