@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,21 +12,22 @@
     <header class="header">
         <img class="header__image" src="./assets/images/header.png" alt="">
     </header>
+
     <main class="principal">
         <a href="" class="princial__volta">Voltar</a>
         <h1 class="principal__title">Cadastro Paciente</h1>
-        <form action="" class="principal__formulario">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" class="principal__formulario">
             <h2 class="formulario__titulo">Responsável</h2>
             <div class="form__box">
-                Nome: <input type="text" class="form__input">
-                Email: <input type="text" class="form__input">
-                Telefone: <input type="text" class="form__input">
+                Nome: <input type="text" class="form__input" name="nome_resp">
+                Email: <input type="text" class="form__input" name="email_resp">
+                Telefone: <input type="text" class="form__input" name="tel_resp">
             </div>
 
             <h2 class="formulario__titulo">Criança</h2>
             <div class="form__box">
-                Nome: <input type="text" class="form__input">
-                Data Nascimento: <input type="text" class="form__input">
+                Nome: <input type="text" class="form__input" name="nome_paci">
+                Data Nascimento: <input type="text" class="form__input" name="nasci_paci">
             </div>
             <br>
             <h2 class="formulario__titulo">Avatar</h2>
@@ -69,12 +72,83 @@
                     </div>
                 </div>
             </section>
-            <input type="button" value="Cadastrar" class="form__btnCadastrar" onclick="mostraPaths()">
+            <input type="submit" value="Cadastrar" class="form__btnCadastrar" onclick="mostraPaths()">
         </form>
     </main>
     <footer class="footer">
         <img class="footer__img" src="./assets/images/footer.png" alt="">
     </footer>
-    <script src="./assets/scripts/moldaAvatar.js"></script>
+    <script src="./assets/scripts/javascript/moldaAvatar.js"></script>
+
+<?php 
+   $nomeResp = $emailResp = $telResp = "";
+   $nomePaci = $nasciPaci = "";
+   $cabelo = $rosto = $pele = $torso = $pernas = "";
+
+   function teste_entrada($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if(empty($_POST["nome_resp"])){
+            $nomeResp = "Nome do Responsável Obrigatório";
+        } else {
+            $nomeResp = teste_entrada($_POST["nome_resp"]);
+            if(!preg_match("/^[a-zA-Z]*$/", $nomeResp)){
+                $nomeResp = "Apenas letras e espaços em branco são permitidos";
+            }
+        }
+
+        if(empty($_POST["email_resp"])){
+            $emailResp = "Email do Responsável Obrigatório";
+        } else {
+            $emailResp = teste_entrada($_POST["email_resp"]);
+            if(!filter_var($emailResp, FILTER_VALIDATE_EMAIL)){
+                $emailResp = "Email do responsável no formato errado";
+            }
+        }
+
+        if(empty($_POST["tel_resp"])){
+            $telResp = "Telefone do Responsável Obrigatório";
+        } else {
+            $telResp = teste_entrada($_POST["tel_resp"]);
+            if(!preg_match("/^[0-9]*$/", $telResp)){
+                $telResp = "Apenas números e espaços em branco são permitidos";
+            }
+        }
+
+        if(empty($_POST["nome_paci"])){
+            $nomePaci = "Nome do Paciente Obrigatório";
+        } else {
+            $nomePaci = teste_entrada($_POST["nome_paci"]);
+            if(!preg_match("/^[a-zA-Z]*$/", $nomePaci)){
+                $nomePaci = "Apenas letras e espaços em branco são permitidos";
+            }
+        }
+
+        if(empty($_POST["nasci_paci"])){
+            $nasciPaci = "Data de Nascimento do Paciente Obrigatório";
+        } else {
+            $nasciPaci = teste_entrada($_POST["nasci_paci"]);
+        } 
+        // echo "<p>$nomeResp</p><br>";
+        // echo "<p>$emailResp</p><br>";
+        // echo "<p>$telResp</p><br>";
+        // echo "<p>$nomePaci</p><br>";
+        // echo "<p>$nasciPaci</p><br>";
+
+        $cabelo = (string)$_POST['cabelo_scr'];
+        echo "<p>$cabeloImg</p><br>";
+
+    }
+    
+    
+    
+
+?>
+    
 </body>
 </html>

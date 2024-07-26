@@ -173,3 +173,24 @@ function mostraPaths(){
     console.log(torso)
     console.log(pernas)
 }
+
+$.ajax({
+
+    url : '../../../cadastroPaciente.php',
+    type : 'POST',
+    data : {
+        'cabelo_scr' : cabelo,
+        'rosto_src': rosto,
+        'pele_src': pele,
+        'torso_src': torso,
+        'pernas_src': pernas
+    },
+    dataType:'json',
+    success : function(data) {              
+        alert('Resultado: '+data);
+    },
+    error : function(request,error)
+    {
+        alert("Resultado: "+JSON.stringify(request));
+    }
+});
