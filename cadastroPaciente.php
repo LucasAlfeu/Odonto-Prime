@@ -94,26 +94,46 @@
                 echo "Erro: " . $sql . "<br>" . $conn->error;
             }
 
-            $sql_idResp = "SELECT id_Resp FROM responsavel WHERE nome_Resp='$nomeResp' AND email_Resp='$emailResp' AND contato_Resp='$telResp'" ; 
-            $id_resp = $conn->query($sql);
+            $idResp = $conn->insert_id;
 
             //Adicionar um avatar
             $sql_avatar = "INSERT INTO avatar(pele_Avat, rosto_Avat, cabelo_Avat, torso_Avat, pernas_Avat) VALUES('$pele', '$rosto', '$cabelo', '$torso', '$pernas')";
             if ($conn->query($sql_avatar) === TRUE) {
                 echo "Novo registro criado com sucesso";
             } else {
-                echo "Erro: " . $sql . "<br>" . $conn->error;
+                echo "Erro: " . $sql_avatar . "<br>" . $conn->error;
             }
 
-            $sql_idAvat = "SELECT id_Avat FROM responsavel WHERE pele_Avat='$pele' AND rosto_Avat='$rosto' AND cabelo_Avat='$cabelo' AND torso_Avat='$torso' AND pernas_Avat='$pernas'" ; 
-            $id_avat = $conn->query($sql);
+            $idAvat = $conn->insert_id;
+
+            // $sql_idResp = "SELECT id_Resp FROM responsavel WHERE nome_Resp='$nomeResp' AND email_Resp='$emailResp' AND contato_Resp='$telResp'" ; 
+            // $result1 = $conn->query($sql_idResp);
+            // $id_resp = '';
+
+            // if($result1->num_rows>0){
+            //     while($row = $result1->fetch_assoc()){
+            //         $id_resp = $row['id_Resp'];
+            //     }
+            // }
+
+            
+
+            // $sql_idAvat = "SELECT id_Avat FROM avatar WHERE pele_Avat='$pele' AND rosto_Avat='$rosto' AND cabelo_Avat='$cabelo' AND torso_Avat='$torso' AND pernas_Avat='$pernas'" ; 
+            // $result2 = $conn->query($sql_idAvat);
+            // $id_avat = '';
+
+            // if($result2->num_rows>0){
+            //     while($row = $result2->fetch_assoc()){
+            //         $idAvat = $row['id_Avat'];
+            //     }
+            // }
 
             //Cadastro De Paciente
-            $sql_paciente = "INSERT INTO paciente(nome_Paci, dataNasci_Pac, id_Resp, id_Avat) VALUES('$nomePaci', '$nasciPaci', '$id_resp', '$id_avat')";
+            $sql_paciente = "INSERT INTO paciente(nome_Paci, dataNasci_Pac, id_Resp, id_Avat) VALUES('$nomePaci', '$nasciPaci', '$idResp', '$idAvat')";
             if ($conn->query($sql_paciente) === TRUE) {
                 echo "Novo registro criado com sucesso";
             } else {
-                echo "Erro: " . $sql . "<br>" . $conn->error;
+                echo "Erro: " . $sql_paciente . "<br>" . $conn->error;
             }
         }
     }
