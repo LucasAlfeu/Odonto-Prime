@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/styles/cadastroPaciente.css">
-    <title>Cadstro de Paciente</title>
+    <title>Cadastro de Paciente</title>
 </head>
 <body>
     <header class="header">
@@ -13,8 +13,8 @@
 
     <main class="principal">
         <a href="" class="princial__volta">Voltar</a>
-        <h1 class="principal__title">Cadastro Paciente</h1>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" class="principal__formulario">
+        <h1 class="principal__title">Cadastro de Paciente</h1>
+        <form action="" class="principal__formulario">
             <h2 class="formulario__titulo">Responsável</h2>
             <div class="form__box">
                 Nome: <input type="text" class="form__input" name="nome_resp">
